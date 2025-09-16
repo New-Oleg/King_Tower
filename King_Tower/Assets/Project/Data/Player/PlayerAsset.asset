@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fafd96f5b4a3740b3e6afb020b89cc, type: 3}
   m_Name: PlayerAsset
   m_EditorClassIdentifier: 
-  PlayePrefl: {fileID: 1366253527667150670, guid: 8ea3afac08f47f34ca000da13bbaf3b9, type: 3}
-  PlayerSpeed: 5
+  PlayePref: {fileID: 1366253527667150670, guid: 8ea3afac08f47f34ca000da13bbaf3b9, type: 3}
+  PlayerSpeed: 8
+  PlayerJumpForce: 3500

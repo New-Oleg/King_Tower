@@ -23,7 +23,6 @@ public class MoveSystem : IEcsInitSystem, IEcsRunSystem
             ref var movableComponent = ref _movePool.Get(entity);
             ref var inputComponent = ref _inputPool.Get(entity);
             ref var transformComponent = ref _transformPool.Get(entity);
-
             transformComponent.transform.position += (Vector3)(inputComponent.direction * movableComponent.speed * Time.deltaTime);
         }
     }

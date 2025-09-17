@@ -21,22 +21,22 @@ public class ColliderSystem : IEcsInitSystem, IEcsRunSystem
             ref var collisionComponent = ref _collisionPool.Get(entity);
             ref var transformComponent = ref _transformPool.Get(entity);
 
-            collisionComponent.tachingCollider = Physics2D.OverlapPoint(transformComponent.transform.position + Vector3.down * 1);
+            var tachingCollider = Physics2D.OverlapPoint(transformComponent.transform.position + Vector3.down * 1);
 
 
-            Debug.Log(collisionComponent.tachingCollider);
+            Debug.Log(tachingCollider);
 
-            if (collisionComponent.tachingCollider != null){
-                switch (collisionComponent.tachingCollider.tag)
+            if (tachingCollider != null){
+                switch (tachingCollider.tag) //свитч тк будут враги, шипы и т.п
                 {
                     case "Ground":
-                        collisionComponent.IsGroundet = true;
+                        collisionComponent.IsGrounded = true;
                         break;
                 }
             }
             else
             {
-                collisionComponent.IsGroundet = false;
+                collisionComponent.IsGrounded = false;
             }
         }
     }

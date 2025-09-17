@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class JumpSystem : IEcsInitSystem, IEcsRunSystem
 {
-    private EcsFilter _jumpComponentFilter;
+    private EcsFilter _filter;
     private EcsPool<JumpComponent> _jumpPool;
     private EcsPool<InputComponent> _inputPool;
     private EcsPool<CollisionComponent> _collisionPool;
@@ -11,7 +11,8 @@ public class JumpSystem : IEcsInitSystem, IEcsRunSystem
     public void Init(EcsSystems systems)
     {
         var world = systems.GetWorld();
-        _jumpComponentFilter = world.Filter<JumpComponent>().Inc<InputComponent>().Inc<CollisionComponent>().End();
+        _filter = world.Filter<JumpComponent>().Inc<InputComponent>().Inc<CollisionComponent>().End();
+
         _jumpPool = world.GetPool<JumpComponent>();
         _inputPool = world.GetPool<InputComponent>();
         _collisionPool = world.GetPool<CollisionComponent>();
@@ -19,17 +20,17 @@ public class JumpSystem : IEcsInitSystem, IEcsRunSystem
 
     public void Run(EcsSystems systems)
     {
-        foreach (int entity in _jumpComponentFilter)
+        foreach (int entity in _filter)
         {
-            ref var jumpComponent = ref _jumpPool.Get(entity);
-            ref var inputComponent = ref _inputPool.Get(entity);
-            ref var collisionComponent = ref _collisionPool.Get(entity);
+            ref var jump = ref _jumpPool.Get(entity);
+            ref var input = ref _inputPool.Get(entity);
+            ref var collision = ref _collisionPool.Get(entity);
 
-            Debug.Log((inputComponent.jumpPressed == true) + " : " +( collisionComponent.IsGroundet == true));
-            if (inputComponent.jumpPressed == true && collisionComponent.IsGroundet == true)
+            Debug.Log(collision.IsGrounded);
+            if (input.jumpPressed && collision.IsGrounded)
             {
-                jumpComponent.Rigidbody2D.AddForce(new Vector2(0, jumpComponent.JumpForce * Time.deltaTime), ForceMode2D.Impulse);
+                jump.Rigidbody2D.AddForce(Vector2.up * jump.JumpForce, ForceMode2D.Impulse);
             }
-        }   
+        }
     }
 }

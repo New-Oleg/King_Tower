@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DataBase
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 353d1b828ec73e54dbd409a828af9fc4, type: 2}
+  buttons: {fileID: 11400000, guid: 29d6d166d5aacd140a1a51bc54a8a6bf, type: 2}
   Rooms:
   - {fileID: 11400000, guid: 69c152955ee2508468b77d900d8c3123, type: 2}

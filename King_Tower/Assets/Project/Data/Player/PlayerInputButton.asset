@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9fafd96f5b4a3740b3e6afb020b89cc, type: 3}
-  m_Name: PlayerAsset
+  m_Script: {fileID: 11500000, guid: 22681d212faa87a4e98317152a10d27d, type: 3}
+  m_Name: PlayerInputButton
   m_EditorClassIdentifier: 
-  PlayePref: {fileID: 1366253527667150670, guid: 8ea3afac08f47f34ca000da13bbaf3b9, type: 3}
-  PlayerSpeed: 8
-  PlayerJumpForce: 10
-  PlayerDashForce: 5
-  PlayerDashUptime: 0.6
+  JumpButton: z
+  DashButton: c
+  AttackButton: x
+  SkillOneButton: Shift
+  SkillTwoButton: Ctrl
+  SkillThreeButton: F

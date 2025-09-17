@@ -6,4 +6,7 @@ public class Player : ScriptableObject
     public GameObject PlayePref;
     public float PlayerSpeed;
     public float PlayerJumpForce;
+
+    public float PlayerDashForce;
+    public float PlayerDashUptime;
 }

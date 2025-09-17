@@ -16,7 +16,6 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem
     public void Run(EcsSystems systems)
     {
         float x = Input.GetAxis("Horizontal"); 
-        bool jump = Input.GetKeyDown(KeyCode.Z);
 
         foreach (int inputComponent in _inputComponentFilter) 
         {
@@ -24,7 +23,9 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem
 
             input.direction = new Vector2(x, 0f);
 
-            input.jumpPressed = jump;
+            input.jumpPressed = Input.GetKeyDown(input.inputButtons.JumpButton);
+
+            input.DashPressed = Input.GetKeyDown(input.inputButtons.DashButton);
         }
     }
 }

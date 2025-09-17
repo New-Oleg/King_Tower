@@ -6,6 +6,7 @@ using UnityEngine;
 public class DataBase : ScriptableObject
 {
     public Player player;
+    public InputButtons buttons;
 
     public List<Room> Rooms;
 

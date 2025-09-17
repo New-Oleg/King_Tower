@@ -24,7 +24,6 @@ public class ColliderSystem : IEcsInitSystem, IEcsRunSystem
             var tachingCollider = Physics2D.OverlapPoint(transformComponent.transform.position + Vector3.down * 1);
 
 
-            Debug.Log(tachingCollider);
 
             if (tachingCollider != null){
                 switch (tachingCollider.tag) //свитч тк будут враги, шипы и т.п

@@ -15,10 +15,12 @@ public class Starter : MonoBehaviour
         _systems = new EcsSystems(_world);
 
         _systems.Add(new GameInitSystem(data));
+
         _systems.Add(new PlayerInputSystem());
         _systems.Add(new MoveSystem());
         _systems.Add(new JumpSystem());
         _systems.Add(new ColliderSystem());
+        _systems.Add(new DashSystem());
 
         _systems.Init();
     }

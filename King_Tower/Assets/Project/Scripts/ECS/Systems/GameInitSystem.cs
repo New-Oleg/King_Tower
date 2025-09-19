@@ -43,6 +43,7 @@ public class GameInitSystem : IEcsInitSystem
         playerJump.JumpForce = _data.player.PlayerJumpForce;
         playerDash.DashForce = _data.player.PlayerDashForce;
         playerDash.DashUptime = _data.player.PlayerDashUptime;
+        playerCollision.IsUnit = true;
         playerRigitbody.rb = SpavnetPlayer.GetComponent<Rigidbody2D>();
 
     }

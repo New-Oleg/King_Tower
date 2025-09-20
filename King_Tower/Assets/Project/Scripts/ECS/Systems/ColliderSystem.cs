@@ -27,15 +27,14 @@ public class ColliderSystem : IEcsInitSystem, IEcsRunSystem
                 Collider2D legCollider = Physics2D.OverlapPoint(transformComponent.transform.position + Vector3.down * 1, LayerMask.GetMask("Objects"));
                 Collider2D bodyCollider = Physics2D.OverlapPoint(transformComponent.transform.position + Vector3.right * 0.7f, LayerMask.GetMask("Objects"));
 
-
+                //отрисовка
                 Vector3 pointPosition = transformComponent.transform.position + Vector3.right * 0.7f;
                 Debug.DrawLine(pointPosition - Vector3.up * 0.1f, pointPosition + Vector3.up * 0.1f, Color.red);
                 Debug.DrawLine(pointPosition - Vector3.left * 0.1f, pointPosition + Vector3.left * 0.1f, Color.red);
-
+                //-----------
 
 
                 LegCheckCollision(legCollider, ref collisionComponent);
-                BodyCheckCollision(bodyCollider, ref collisionComponent);
             }
 
         }
@@ -61,24 +60,22 @@ public class ColliderSystem : IEcsInitSystem, IEcsRunSystem
         }
     }
     
-    private void BodyCheckCollision(Collider2D? Collider, ref CollisionComponent collisionComponent)
-    {
-        if (Collider != null)
-        {
-            switch (Collider.tag) //свитч тк будут враги, шипы и т.п
-            {
-                case "PlatformEdge":
-                    Debug.Log("i can do this");
-                    collisionComponent.IsCanUp = true;
-                    break;
-                case "Enemy":
-                    break;
-            }
-        }
-        else // значит не косаеться ничего, все сделать false
-        {
-            collisionComponent.IsCanUp = false;
-        }
-    }
+    //private void BodyCheckCollision(Collider2D? Collider, ref CollisionComponent collisionComponent)
+    //{
+    //    if (Collider != null)
+    //    {
+    //        switch (Collider.tag) //свитч тк будут враги, шипы и т.п
+    //        {
+    //            case "PlatformEdge":
+    //                Debug.Log("i can do this");
+    //                break;
+    //            case "Enemy":
+    //                break;
+    //        }
+    //    }
+    //    else // значит не косаеться ничего, все сделать false
+    //    {
+    //    }
+    //}
 
 }

@@ -9,5 +9,4 @@ public struct CollisionComponent
     public bool IsWeapon;
 
     public bool IsGrounded;
-    public bool IsCanUp;
 }
